@@ -4,6 +4,7 @@ import java.nio.file.Paths;
 
 import engine.core.MarioGame;
 import engine.core.MarioResult;
+import project.RandomIndividual;
 import project.testAgent;
 
 public class PlayLevel {
@@ -35,6 +36,6 @@ public class PlayLevel {
     public static void main(String[] args) {
         MarioGame game = new MarioGame();
         // printResults(game.playGame(getLevel("../levels/original/lvl-1.txt"), 200, 0));
-        printResults(game.runGame(new testAgent(), getLevel("./levels/original/lvl-1.txt"), 20, 0, true));
+        printResults(game.runGame(new RandomIndividual(), getLevel("./levels/original/lvl-1.txt"), 20, 0, true));
     }
 }
