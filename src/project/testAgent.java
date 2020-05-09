@@ -33,6 +33,7 @@ public class testAgent implements MarioAgent {
     @Override
     public boolean[] getActions(MarioForwardModel model, MarioTimer timer) {
         turn += 1;
+        System.out.println(turn);
        // timertest = new MarioTimer(200);
         return choices.get((turn%9));
     }
