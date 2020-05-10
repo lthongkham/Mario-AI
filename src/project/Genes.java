@@ -8,7 +8,7 @@ public class Genes {
     private ArrayList<boolean[]> poss;
 
     public Genes(){
-        Random rnd = new Random();
+        this.Choices = new ArrayList<>();
         for (int i =0;i<700;i++){
             double randomDouble = Math.random();
             randomDouble = randomDouble * 30 + 1;
@@ -16,7 +16,7 @@ public class Genes {
             Choices.add(randomInt);
         }
 
-        ArrayList<boolean[]> poss = new ArrayList<>();
+        this.poss = new ArrayList<>();
 
         poss.add(new boolean[]{true,true,true,true,true});
         poss.add(new boolean[]{true,true,true,true,false});
@@ -53,7 +53,7 @@ public class Genes {
     }
     public Genes(ArrayList<Integer> choices) {
         Choices = choices;
-        ArrayList<boolean[]> poss = new ArrayList<>();
+        this.poss = new ArrayList<>();
 
         poss.add(new boolean[]{true,true,true,true,true});
         poss.add(new boolean[]{true,true,true,true,false});
@@ -91,5 +91,20 @@ public class Genes {
 
     public boolean[] getMove(int i){
         return poss.get(Choices.get(i));
+    }
+    public int getChoices(int i){
+        return Choices.get(i);
+    }
+    public void setChoice(int index, int value){
+        this.Choices.set(index,value);
+    }
+
+    @Override
+    public String toString() {
+        String str = "";
+        for (int i =0;i<700;i++){
+            str += getChoices(i);
+        }
+        return str;
     }
 }

@@ -1,10 +1,14 @@
 package engine.core;
 
+import java.awt.image.BufferedImage;
 import java.awt.image.VolatileImage;
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.awt.*;
 import java.awt.event.KeyAdapter;
 
+import javax.imageio.ImageIO;
 import javax.swing.JFrame;
 
 import agents.human.Agent;
