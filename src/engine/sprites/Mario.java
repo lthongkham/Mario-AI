@@ -30,6 +30,9 @@ public class Mario extends MarioSprite {
     private final float AIR_INERTIA = 0.89f;
     private final int POWERUP_TIME = 3;
 
+    private float flagY = 0;
+    private float flagX = 0;
+
     public Mario(boolean visuals, float x, float y) {
         super(x + 8, y + 15, SpriteType.MARIO);
         this.isLarge = this.oldLarge = false;
@@ -341,6 +344,8 @@ public class Mario extends MarioSprite {
         if (x > world.level.exitTileX * 16) {
             x = world.level.exitTileX * 16;
             xa = 0;
+            flagY = y;
+            flagX = x;
             this.world.win();
         }
 
@@ -500,5 +505,13 @@ public class Mario extends MarioSprite {
         super.render(og);
 
         this.graphics.render(og, (int) (this.x - this.world.cameraX), (int) (this.y - this.world.cameraY));
+    }
+
+    public float getFlagY(){
+        return flagY;
+    }
+
+    public float getFlagX(){
+        return flagX;
     }
 }

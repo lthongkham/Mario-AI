@@ -358,4 +358,43 @@ public class MarioResult {
         }
         return bricks;
     }
+
+    public float getFlagY() {
+        float ground = this.world.level.endHeight();
+        return ground - this.world.mario.getFlagY();
+    }
+
+    public int getFlagPoints() {
+        if (getFlagY() < 22) {
+            return 100;
+        } else if (getFlagY() < 67) {
+            return 400;
+        } else if (getFlagY() < 102) {
+            return 800;
+        } else if (getFlagY() < 151) {
+            return 2000;
+        } else {
+            return 5000;
+        }
+    }
+
+    public int fitness() {
+        int F = 0;
+        F += 50 * getNumDestroyedBricks();
+        F += 200 * getCurrentCoins();
+        F += 1000 * (getNumCollectedMushrooms() + getNumCollectedFireflower());
+        F += 200 * getKillsTotal();
+        F += getFlagPoints();
+        F += 50 * getRemainingTime();
+        F += 100 * getCompletionPercentage();
+        System.out.println("Bricks " + 50 * getNumDestroyedBricks());
+        System.out.println("Coins :" + 200 * getCurrentCoins());
+        System.out.println("Mushrooms + FireFlowers " + 1000 * (getNumCollectedMushrooms() + getNumCollectedFireflower()));
+        System.out.println("Kills " + 200 * getKillsTotal());
+        System.out.println("Flag " + getFlagPoints());
+        System.out.println("Remaining Time " + 50 * getRemainingTime());
+        System.out.println("Completion " + 100 * getCompletionPercentage());
+
+        return F;
+    }
 }

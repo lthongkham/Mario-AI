@@ -18,6 +18,10 @@ public class GenerateLevel {
                 " Falls: " + result.getKillsByFall() + ")");
         System.out.println("Bricks: " + result.getNumDestroyedBricks() + " Jumps: " + result.getNumJumps() +
                 " Max X Jump: " + result.getMaxXJump() + " Max Air Time: " + result.getMaxJumpAirTime());
+        if(result.getGameStatus()== GameStatus.WIN){
+            System.out.println("Flag jump: "+result.getFlagY());
+        }
+        System.out.println("Fitness :"+result.fitness());
         System.out.println("****************************************************************");
     }
 
@@ -27,6 +31,5 @@ public class GenerateLevel {
         MarioGame game = new MarioGame();
         // printResults(game.playGame(level, 200, 0));
         printResults(game.runGame(new agents.robinBaumgarten.Agent(), level, 20, 0, true));
-        //TEST GIT
     }
 }
