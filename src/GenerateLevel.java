@@ -27,5 +27,6 @@ public class GenerateLevel {
         MarioGame game = new MarioGame();
         // printResults(game.playGame(level, 200, 0));
         printResults(game.runGame(new agents.robinBaumgarten.Agent(), level, 20, 0, true));
+        //TEST GIT
     }
 }
